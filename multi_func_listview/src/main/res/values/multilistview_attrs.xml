@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StikkyHeaderView">
+        <attr name="maxHeight" format="dimension" />
+        <attr name="miniHeight" format="dimension" />
+        <attr name="headline" format="string" />
+        <attr name="summary" format="string" />
+        <attr name="header" format="reference" />
+        <attr name="button" format="reference" />
+        <attr name="bg" format="reference" />
+        <attr name="fg" format="reference" />
+        <attr name="iconMark" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="StikkySwipeMenuListView">
+        <attr name="stikkyMaxHeight" format="dimension" />
+        <attr name="stikkyMinHeight" format="dimension" />
+    </declare-styleable>
+
+    <!--ProgressWheel-->
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+</resources>

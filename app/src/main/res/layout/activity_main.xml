@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_xlistview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="xListView"/>
+        <Button
+            android:id="@+id/btn_swipelistview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="sListView"/>
+        <Button
+            android:id="@+id/btn_stickeylistview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="tListView"/>
+    </LinearLayout>
+
+    <cn.richinfo.multifunclistview.XListView
+        android:id="@+id/x_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_top"
+        android:visibility="gone"/>
+
+    <cn.richinfo.multifunclistview.SwipeMenuListView
+        android:id="@+id/s_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_top"
+        android:visibility="gone"/>
+    <cn.richinfo.multifunclistview.StikkySwipeMenuListView
+        android:id="@+id/t_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_top"
+        android:visibility="gone"
+        app:stikkyMaxHeight="240dp"
+        app:stikkyMinHeight="44dp"/>
+
+    <cn.richinfo.multifunclistview.StikkyHeaderView2
+        android:id="@+id/sv_slid"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@null"
+        android:layout_below="@id/ll_top"
+        app:maxHeight="240dp"
+        app:miniHeight="44dp"
+        app:title="XXXXXX"
+        app:summary="xxxxxx"
+        app:bg="@drawable/theme_news_header_bg"
+        app:fg="@drawable/white_foreground"
+        android:visibility="gone"/>
+
+</RelativeLayout>
