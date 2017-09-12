@@ -11,7 +11,7 @@ import android.widget.ListAdapter;
 import android.widget.Toast;
 
 import cn.richinfo.multifunclistview.IXListViewListener;
-import cn.richinfo.multifunclistview.StikkySwipeMenuListView;
+import cn.richinfo.multifunclistview.StikkyListView;
 import cn.richinfo.multifunclistview.SwipeMenu;
 import cn.richinfo.multifunclistview.SwipeMenuCreator;
 import cn.richinfo.multifunclistview.SwipeMenuItem;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ListAdapter mAdapter;
     XListView xListView;
     SwipeMenuListView sListView;
-    StikkySwipeMenuListView tListView;
+    StikkyListView tListView;
     View header;
     Handler mHandler;
 
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         header = findViewById(R.id.sv_slid);
-        tListView = (StikkySwipeMenuListView)findViewById(R.id.t_listview);
+        tListView = (StikkyListView)findViewById(R.id.t_listview);
         tListView.setStikkyHeader(header);
-        tListView.setmStikkyOnScrollListener(new StikkySwipeMenuListView.StikkyOnScrollListener() {
+        tListView.setmStikkyOnScrollListener(new StikkyListView.StikkyOnScrollListener() {
             @Override
             public void onStartScroll(View headerView) {
                 Toast.makeText(MainActivity.this, "start scroll...", Toast.LENGTH_SHORT).show();

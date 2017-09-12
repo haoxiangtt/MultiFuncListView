@@ -43,7 +43,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/ll_top"
         android:visibility="gone"/>
-    <cn.richinfo.multifunclistview.StikkySwipeMenuListView
+    <cn.richinfo.multifunclistview.StikkyListView
         android:id="@+id/t_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

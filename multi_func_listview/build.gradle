@@ -26,8 +26,6 @@ dependencies {
 
 def BASENAME = "multiFuncListView";
 def sdkDestinationPath = "build/outputs/jar/";
-
-
 android.libraryVariants.all { variant ->
     def deleteBuild = tasks.create(name : "delete${variant.name}Jar",
             type : Delete) {
@@ -36,10 +34,14 @@ android.libraryVariants.all { variant ->
     tasks.create(name : "makeJar${variant.name.capitalize()}",
             dependsOn : [deleteBuild, variant.assemble],
             type : Jar) {
-        def zfile = file("build/intermediates/bundles/${variant.name}/classes.jar")
-        from zipTree(zfile)
+//        def zfile = file("build/intermediates/bundles/${variant.name}/classes.jar")
+//        from zipTree(zfile)
+        from "build/intermediates/classes/${variant.name}"
         baseName "${BASENAME}-${variant.name}"
         destinationDir file(sdkDestinationPath)
-        exclude "com/google/zxing/**"
+        exclude "android/support/**/*.class"
+        exclude "**/R.class"
+        exclude "**/R\$*.class"
+        include "cn/richinfo/**/*.class"
     }
 }

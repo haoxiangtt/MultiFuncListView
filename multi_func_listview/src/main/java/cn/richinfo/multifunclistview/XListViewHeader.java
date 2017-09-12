@@ -65,27 +65,36 @@ public class XListViewHeader extends LinearLayout {
 	}
 
 	private void initView(Context context) {
-		mHeaderReadyStr = context.getResources().getString(R.string.xlistview_header_hint_ready);
-		mHeaderNormalStr = context.getResources().getString(R.string.xlistview_header_hint_normal);
-		mHeaderLoadStr = context.getResources().getString(R.string.xlistview_header_hint_loading);
+		mHeaderReadyStr = context.getResources().getString(
+			getIdentifier(context, "xlistview_header_hint_ready", "string"));
+		mHeaderNormalStr = context.getResources().getString(
+			getIdentifier(context, "xlistview_header_hint_normal", "string"));
+		mHeaderLoadStr = context.getResources().getString(
+			getIdentifier(context, "xlistview_header_hint_loading", "string"));
 		
 		
 		// 初始情况，设置下拉刷新view高度为0
 		LayoutParams lp = new LayoutParams(
 				LayoutParams.MATCH_PARENT, 0);
 		mContainer = (LinearLayout) LayoutInflater.from(context).inflate(
-				R.layout.xlistview_header, null);
+			getIdentifier(context, "xlistview_header", "layout"), null);
 
 		addView(mContainer, lp);
 		setGravity(Gravity.BOTTOM);
 
-		mContent = (RelativeLayout)findViewById(R.id.xlistview_header_content);
-		mArrowImageView = (ImageView)findViewById(R.id.xlistview_header_arrow);
-		mHintTextView = (TextView)findViewById(R.id.xlistview_header_hint_textview);
-		mProgressBar = (ProgressBar)findViewById(R.id.xlistview_header_progressbar);
+		mContent = (RelativeLayout)findViewById(
+			getIdentifier(context, "xlistview_header_content", "id"));
+		mArrowImageView = (ImageView)findViewById(
+			getIdentifier(context, "xlistview_header_arrow", "id"));
+		mHintTextView = (TextView)findViewById(
+			getIdentifier(context, "xlistview_header_hint_textview", "id"));
+		mProgressBar = (ProgressBar)findViewById(
+			getIdentifier(context, "xlistview_header_progressbar", "id"));
 
-		mllTime = (ViewGroup)findViewById(R.id.xlistview_ll_time);
-		mHeaderTimeView = (TextView)findViewById(R.id.xlistview_header_time);
+		mllTime = (ViewGroup)findViewById(
+			getIdentifier(context, "xlistview_ll_time", "id"));
+		mHeaderTimeView = (TextView)findViewById(
+			getIdentifier(context, "xlistview_header_time", "id"));
 
 		mRotateUpAnim = new RotateAnimation(0.0f, -180.0f,
 				Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
@@ -99,6 +108,12 @@ public class XListViewHeader extends LinearLayout {
 		mRotateDownAnim.setFillAfter(true);
 
 		mInitHeaderHeight = dp2px(context, 50);
+	}
+
+	private int getIdentifier(Context context, String name, String defType) {
+		int id = context.getResources().getIdentifier(name, defType,
+				context.getPackageName());
+		return id;
 	}
 
 	private int dp2px(Context context, float dipValue) {

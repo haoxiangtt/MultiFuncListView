@@ -18,6 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
+import java.lang.reflect.Field;
+
 /**
  * Created by ouyangjinfu on 2016/4/25.
  * @Deprecated 已被StikkyHeaderView2代替
@@ -76,18 +78,26 @@ public class StikkyHeaderView extends View{
 
     public StikkyHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.StikkyHeaderView);
+        int[] stikkyHeaderView = (int[])getResourceId(context, "StikkyHeaderView", "styleable");
+        TypedArray a = context.obtainStyledAttributes(attrs, stikkyHeaderView);
         int defMinHeight = dp2px(context,50);
         int delMaxHeight = dp2px(context,240);
-        mMiniHeight = a.getDimensionPixelOffset(R.styleable.StikkyHeaderView_miniHeight,defMinHeight);
-        mMaxHeight = a.getDimensionPixelOffset(R.styleable.StikkyHeaderView_maxHeight,delMaxHeight);
-        mTitle = a.getString(R.styleable.StikkyHeaderView_headline);
-        mSummary = a.getString(R.styleable.StikkyHeaderView_summary);
-        mHeader = a.getDrawable(R.styleable.StikkyHeaderView_header);
-        mButton = a.getDrawable(R.styleable.StikkyHeaderView_button);
-        mBackground = a.getDrawable(R.styleable.StikkyHeaderView_bg);
-        mForeground = a.getDrawable(R.styleable.StikkyHeaderView_fg);
+        mMiniHeight = a.getDimensionPixelOffset(
+            Integer.valueOf(getResourceId(context, "StikkyHeaderView_miniHeight", "styleable").toString()),defMinHeight);
+        mMaxHeight = a.getDimensionPixelOffset(
+            Integer.valueOf(getResourceId(context, "StikkyHeaderView_maxHeight", "styleable").toString()), delMaxHeight);
+        mTitle = a.getString(
+            Integer.valueOf(getResourceId(context, "StikkyHeaderView_title", "styleable").toString()));
+        mSummary = a.getString(
+            Integer.valueOf(getResourceId(context, "StikkyHeaderView_summary", "styleable").toString()));
+        mHeader = a.getDrawable(
+            Integer.valueOf(getResourceId(context, "StikkyHeaderView_header", "styleable").toString()));
+        mButton = a.getDrawable(
+            Integer.valueOf(getResourceId(context, "StikkyHeaderView_button", "styleable").toString()));
+        mBackground = a.getDrawable(
+            Integer.valueOf(getResourceId(context, "StikkyHeaderView_bg", "styleable").toString()));
+        mForeground = a.getDrawable(
+            Integer.valueOf(getResourceId(context, "StikkyHeaderView_fg", "styleable").toString()));
         a.recycle();
 
         if(TextUtils.isEmpty(mTitle)){
@@ -100,6 +110,64 @@ public class StikkyHeaderView extends View{
         mBtnRect = new Rect();
         mScroller = new Scroller(context);
         mGestureDetector = new GestureDetector(context,new MySimpleOnGestureListener());
+    }
+
+    /**
+
+     * 对于context.getResources().getIdentifier无法获取的数据,或者数组
+
+     * 资源反射值
+
+     * @paramcontext
+
+     * @param name
+
+     * @param type
+
+     * @return
+
+     */
+
+    private Object getResourceId(Context context,String name, String type) {
+
+        String className = context.getPackageName() +".R";
+
+        try {
+
+            Class<?> cls = Class.forName(className);
+
+            for (Class<?> childClass : cls.getClasses()) {
+
+                String simple = childClass.getSimpleName();
+
+                if (simple.equals(type)) {
+
+                    for (Field field : childClass.getFields()) {
+
+                        String fieldName = field.getName();
+
+                        if (fieldName.equals(name)) {
+
+                            System.out.println(fieldName);
+
+                            return field.get(null);
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+        return 0;
+
     }
 
     protected int dp2px(Context context, float dipValue) {

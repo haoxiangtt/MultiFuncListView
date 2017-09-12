@@ -1,7 +1,6 @@
 package cn.richinfo.multifunclistview;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -22,7 +21,6 @@ import android.util.AttributeSet;
  */
 public class StikkyHeaderView2 extends StikkyHeaderView {
 
-//    private Drawable mIconMark;
     private String mTypeMark;
 
     public StikkyHeaderView2(Context context) {
@@ -35,10 +33,6 @@ public class StikkyHeaderView2 extends StikkyHeaderView {
 
     public StikkyHeaderView2(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.StikkyHeaderView);
-//        mIconMark = a.getDrawable(R.styleable.StikkyHeaderView_iconMark);
-        a.recycle();
     }
 
     @Override

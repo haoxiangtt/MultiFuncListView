@@ -13,13 +13,16 @@ import android.widget.AbsListView;
 import android.widget.Scroller;
 import android.widget.Space;
 
+import java.lang.reflect.Field;
+
 /**
  * Created by ouyangjinfu on 2016/5/5.
  */
-public class StikkySwipeMenuListView extends SwipeMenuListView {
+public class StikkyListView extends XListView {
 
     private static final int MAX_TRIGGER_VELOCITY = 300;
     private static final int MIN_TRIGGER_VELOCITY = -300;
+    protected int MAX_X = 5;
 
     private View mFakeHeader;
 
@@ -41,30 +44,75 @@ public class StikkySwipeMenuListView extends SwipeMenuListView {
         public void onEndScroll(View headerView);
     }
 
-    public StikkySwipeMenuListView(Context context) {
+    public StikkyListView(Context context) {
         super(context);
         init(context,null,0);
     }
 
-    public StikkySwipeMenuListView(Context context, AttributeSet attrs, int defStyle) {
+    public StikkyListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context,attrs,defStyle);
     }
 
-    public StikkySwipeMenuListView(Context context, AttributeSet attrs) {
+    public StikkyListView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context,attrs,0);
     }
 
 
     private void init(Context context, AttributeSet attrs, int i) {
+        int[] stikkySwipeMenuListView = (int[])getResourceId(context, "StikkyListView", "styleable");
         TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.StikkySwipeMenuListView);
-        mMaxHeight = a.getDimensionPixelOffset(R.styleable.StikkySwipeMenuListView_stikkyMaxHeight
+                stikkySwipeMenuListView);
+        mMaxHeight = a.getDimensionPixelOffset(
+            Integer.valueOf(getResourceId(context, "StikkyListView_stikkyMaxHeight", "styleable").toString())
                 ,dp2px(context,240));
-        mMinHeight =  a.getDimensionPixelOffset(R.styleable.StikkySwipeMenuListView_stikkyMinHeight
+        mMinHeight =  a.getDimensionPixelOffset(
+            Integer.valueOf(getResourceId(context, "StikkyListView_stikkyMinHeight", "styleable").toString())
                 ,dp2px(context,50));
         a.recycle();
+    }
+
+    private Object getResourceId(Context context,String name, String type) {
+
+        String className = context.getPackageName() +".R";
+
+        try {
+
+            Class<?> cls = Class.forName(className);
+
+            for (Class<?> childClass : cls.getClasses()) {
+
+                String simple = childClass.getSimpleName();
+
+                if (simple.equals(type)) {
+
+                    for (Field field : childClass.getFields()) {
+
+                        String fieldName = field.getName();
+
+                        if (fieldName.equals(name)) {
+
+                            System.out.println(fieldName);
+
+                            return field.get(null);
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+        return 0;
+
     }
 
     private int dp2px(Context context, float dipValue) {

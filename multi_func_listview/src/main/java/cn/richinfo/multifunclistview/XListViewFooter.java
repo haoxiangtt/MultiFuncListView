@@ -50,17 +50,28 @@ public class XListViewFooter extends LinearLayout {
 //		setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT
 //				, ViewGroup.LayoutParams.WRAP_CONTENT));
 //		setOrientation(LinearLayout.VERTICAL);
-		mFootReadyStr = context.getResources().getString(R.string.xlistview_footer_hint_ready);
-		mFootNormalStr = context.getResources().getString(R.string.xlistview_footer_hint_normal);
+		mFootReadyStr = context.getResources().getString(
+			getIdentifier(context, "xlistview_footer_hint_ready", "string"));
+		mFootNormalStr = context.getResources().getString(
+				getIdentifier(context, "xlistview_footer_hint_normal", "string"));
 		ViewGroup moreView = (ViewGroup)LayoutInflater.from(mContext).
-				inflate(R.layout.xlistview_footer, this,false);
+				inflate(getIdentifier(context, "xlistview_footer", "layout"), this, false);
 //		moreView.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 //		mContentView = moreView.findViewById(R.id.xlistview_footer_content);
-		mProgressBar = moreView.findViewById(R.id.xlistview_footer_progressbar);
-		mHintView = (TextView)moreView.findViewById(R.id.xlistview_footer_hint_textview);
+		mProgressBar = moreView.findViewById(
+				getIdentifier(context, "xlistview_footer_progressbar", "id"));
+		mHintView = (TextView)moreView.findViewById(
+				getIdentifier(context, "xlistview_footer_hint_textview", "id"));
 		mContentView = moreView;
 		addView(moreView);
 		
+	}
+
+
+	private int getIdentifier(Context context, String name, String defType) {
+		int id = context.getResources().getIdentifier(name, defType,
+				context.getPackageName());
+		return id;
 	}
 
 	

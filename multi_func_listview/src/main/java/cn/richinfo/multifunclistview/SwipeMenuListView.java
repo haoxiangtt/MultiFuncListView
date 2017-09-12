@@ -490,7 +490,7 @@ public class SwipeMenuListView extends ListView implements OnScrollListener{
 
 	@Override
 	public void setAdapter(ListAdapter adapter) {
-		
+		//add by ouyangjinfu(haoxiangtt)
 		// make sure XListViewFooter is the last footer view, and only add once.
 		if (mIsFooterReady == false) {
 			mIsFooterReady = true;

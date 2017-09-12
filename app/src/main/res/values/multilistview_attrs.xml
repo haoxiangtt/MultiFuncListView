@@ -9,7 +9,7 @@
         <attr name="button" format="reference" />
         <attr name="bg" format="reference" />
         <attr name="fg" format="reference" />
-        <attr name="iconMark" format="string" />
+        <attr name="iconMark" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="StikkyListView">
