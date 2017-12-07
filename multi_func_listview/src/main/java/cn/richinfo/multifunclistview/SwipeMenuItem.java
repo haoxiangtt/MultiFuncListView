@@ -3,6 +3,7 @@ package cn.richinfo.multifunclistview;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.view.ViewGroup;
 
 /**
  * 
@@ -19,10 +20,10 @@ public class SwipeMenuItem {
 	private Drawable background;
 	private int titleColor;
 	private int titleSize;
-	private int width;
+	private int width = ViewGroup.LayoutParams.WRAP_CONTENT;
 	
-	private int iconWidth;
-	private int iconHeight;
+	private int iconWidth = ViewGroup.LayoutParams.WRAP_CONTENT;
+	private int iconHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
 
 	public SwipeMenuItem(Context context) {
 		mContext = context;

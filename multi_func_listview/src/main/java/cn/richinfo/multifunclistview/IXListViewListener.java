@@ -2,8 +2,8 @@ package cn.richinfo.multifunclistview;
 
 /**
  * <pre>
- * @copyright  : Copyright ©2004-2018 版权所有　彩讯科技股份有限公司
- * @company    : 彩讯科技股份有限公司
+ * @copyright  : Copyright ©2004-2018 版权所有　XXXXXXXXXXXXXXXXXXXX
+ * @company    : XXXXXXXXXXXXXXXXXXXX
  * @author     : OuyangJinfu
  * @e-mail     : ouyangjinfu@richinfo.cn
  * @createDate : 2017/9/8 0008
