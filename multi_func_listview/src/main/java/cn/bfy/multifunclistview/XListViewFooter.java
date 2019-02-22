@@ -4,7 +4,7 @@
  * @author Maxwin
  * @description XListView's footer
  */
-package cn.richinfo.multifunclistview;
+package cn.bfy.multifunclistview;
 
 import android.content.Context;
 import android.util.AttributeSet;

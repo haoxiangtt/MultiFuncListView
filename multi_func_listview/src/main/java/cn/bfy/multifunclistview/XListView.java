@@ -1,4 +1,4 @@
-package cn.richinfo.multifunclistview;
+package cn.bfy.multifunclistview;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -17,7 +17,7 @@ import java.util.Date;
  * @copyright  : Copyright ©2004-2018 版权所有　XXXXXXXXXXXXXXXXXXXX
  * @company    : XXXXXXXXXXXXXXXXXXXX
  * @author     : OuyangJinfu
- * @e-mail     : ouyangjinfu@richinfo.cn
+ * @e-mail     : jinfu123.-@163.com
  * @createDate : 2017/9/7 0007
  * @modifyDate : 2017/9/7 0007
  * @version    : 1.0

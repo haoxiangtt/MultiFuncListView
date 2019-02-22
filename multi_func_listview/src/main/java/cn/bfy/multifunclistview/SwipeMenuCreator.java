@@ -1,4 +1,4 @@
-package cn.richinfo.multifunclistview;
+package cn.bfy.multifunclistview;
 
 
 /**

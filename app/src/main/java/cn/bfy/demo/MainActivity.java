@@ -1,4 +1,4 @@
-package cn.richinfo.demo;
+package cn.bfy.demo;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -10,13 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.Toast;
 
-import cn.richinfo.multifunclistview.IXListViewListener;
-import cn.richinfo.multifunclistview.StikkyListView;
-import cn.richinfo.multifunclistview.SwipeMenu;
-import cn.richinfo.multifunclistview.SwipeMenuCreator;
-import cn.richinfo.multifunclistview.SwipeMenuItem;
-import cn.richinfo.multifunclistview.SwipeMenuListView;
-import cn.richinfo.multifunclistview.XListView;
+import cn.bfy.multifunclistview.IXListViewListener;
+import cn.bfy.multifunclistview.StikkyListView;
+import cn.bfy.multifunclistview.SwipeMenu;
+import cn.bfy.multifunclistview.SwipeMenuCreator;
+import cn.bfy.multifunclistview.SwipeMenuItem;
+import cn.bfy.multifunclistview.SwipeMenuListView;
+import cn.bfy.multifunclistview.XListView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
         , IXListViewListener {

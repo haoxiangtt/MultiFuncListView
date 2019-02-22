@@ -30,20 +30,20 @@
             android:text="tListView"/>
     </LinearLayout>
 
-    <cn.richinfo.multifunclistview.XListView
+    <cn.bfy.multifunclistview.XListView
         android:id="@+id/x_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/ll_top"
         android:visibility="gone"/>
 
-    <cn.richinfo.multifunclistview.SwipeMenuListView
+    <cn.bfy.multifunclistview.SwipeMenuListView
         android:id="@+id/s_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/ll_top"
         android:visibility="gone"/>
-    <cn.richinfo.multifunclistview.StikkyListView
+    <cn.bfy.multifunclistview.StikkyListView
         android:id="@+id/t_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,7 +52,7 @@
         app:stikkyMaxHeight="240dp"
         app:stikkyMinHeight="44dp"/>
 
-    <cn.richinfo.multifunclistview.StikkyHeaderView2
+    <cn.bfy.multifunclistview.StikkyHeaderView2
         android:id="@+id/sv_slid"
         android:layout_width="match_parent"
         android:layout_height="240dp"

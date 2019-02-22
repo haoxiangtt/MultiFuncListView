@@ -1,4 +1,4 @@
-package cn.richinfo.multifunclistview;
+package cn.bfy.multifunclistview;
 
 import android.content.Context;
 import android.support.v4.view.GestureDetectorCompat;

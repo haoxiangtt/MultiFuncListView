@@ -1,4 +1,4 @@
-package cn.richinfo.multifunclistview;
+package cn.bfy.multifunclistview;
 
 import android.text.TextUtils;
 import android.view.Gravity;
